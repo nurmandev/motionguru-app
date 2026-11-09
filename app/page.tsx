@@ -24,8 +24,8 @@ export default function HomePage() {
           {/* Centered Headline & Copy */}
           <div className="donatly-hero-center">
             <h1 className="donatly-headline" data-motion="hero-headline">
-              Turn Product Ideas Into<br />
-              Cinema-Grade Intro Videos
+              Turn Ideas Into<br />
+              Cinema-Grade Videos
             </h1>
 
             <p className="donatly-subheadline" data-motion="hero-copy">
