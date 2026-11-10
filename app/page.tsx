@@ -2,17 +2,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PageMotion } from '../src/components/page-motion';
 import { MarketingFooter } from '../src/components/marketing-footer';
-import { MarketingHeader } from '../src/components/marketing-header';
+import { FolderPreview } from '../src/components/folder-preview';
+import { GenerateButton } from '../src/components/generate-button';
+import { NotchNavbar } from '../src/components/notch-navbar';
 import { TestimonialsCarousel } from '../src/components/testimonials-carousel';
 import { createVideoHref } from '../src/lib/marketing-links';
 import { getYouTubeEmbedUrl } from '../src/lib/testimonial-carousel';
 
 export default function HomePage() {
   return (
-    <div className="donatly-page-wrapper" id="top">
-      <MarketingHeader />
+    <>
+      <NotchNavbar createHref={createVideoHref} />
 
-      {/* Hero Canvas Container */}
+      <div className="donatly-page-wrapper" id="top">
+        {/* Hero Canvas Container */}
       <div className="donatly-canvas">
         {/* Subtle grid texture overlay in background */}
         <div className="donatly-grid-bg" aria-hidden="true">
@@ -34,9 +37,7 @@ export default function HomePage() {
             </p>
 
             <div className="donatly-actions" data-motion="hero-actions">
-              <Link href={createVideoHref} className="donatly-btn-donate" data-magnetic>
-                Generate Video Free
-              </Link>
+              <GenerateButton href={createVideoHref} aria-label="Get started" />
             </div>
           </div>
 
@@ -44,25 +45,14 @@ export default function HomePage() {
           <div className="donatly-cards-row" data-motion="hero-visual">
             {/* LEFT COLUMN: 2 Stacked Cards */}
             <div className="donatly-left-col">
-              {/* Top Card: 3D Product Render + chevron lines + badge */}
-              <div className="donatly-card donatly-card-smiles">
-                <div className="donatly-card-bg-chevron" aria-hidden="true">
-                  <svg viewBox="0 0 160 120" preserveAspectRatio="none">
-                    <polyline points="0,45 50,15 100,50 160,10" fill="none" stroke="#254d3e" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
-                    <polyline points="0,75 50,45 100,80 160,40" fill="none" stroke="#254d3e" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <div className="donatly-smiles-img-wrap">
-                  <Image
-                    src="/hero/product-render.jpg"
-                    alt="3D Product Render in motion"
-                    fill
-                    className="donatly-img"
-                    sizes="(max-width: 768px) 100vw, 300px"
-                    priority
-                  />
-                </div>
-                <span className="donatly-pill-community">3D Motion Engine</span>
+              {/* Top Card: Hari Folder Preview */}
+              <div className="donatly-card donatly-card-folder">
+                <FolderPreview
+                  variant="hari"
+                  size="lg"
+                  label="3D Motion Engine"
+                  className="donatly-folder-preview-card"
+                />
               </div>
 
               {/* Bottom Card: Stat metric */}
@@ -122,7 +112,7 @@ export default function HomePage() {
       </div>
 
       {/* SECTION 2: White Rounded Card: "Turn Product Specs Into Motion Power" */}
-      <section className="donatly-section-white">
+      <section className="donatly-section-white" id="templates">
         <div className="donatly-section-header-split">
           <h2 className="donatly-sec-title">
             Product Specs to Studio-Quality Motion
@@ -301,6 +291,7 @@ export default function HomePage() {
       <MarketingFooter />
 
       <PageMotion />
-    </div>
+      </div>
+    </>
   );
 }

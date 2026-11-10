@@ -40,7 +40,7 @@ export function PageMotion() {
         }
 
         gsap.set(
-          '.notch-logo, .notch-link, .notch-auth > *, .notch-toggle, .notch-quick',
+          '.notch-logo, .notch-link, .notch-cta',
           { autoAlpha: 0, y: m.distance.xs },
         );
         gsap.set(
@@ -53,8 +53,7 @@ export function PageMotion() {
         entrance
           .to('.notch-logo', { autoAlpha: 1, y: 0, duration: 0.42 }, 0.05)
           .to('.notch-link', { autoAlpha: 1, y: 0, duration: 0.36, stagger: 0.055 }, 0.12)
-          .to('.notch-auth > *', { autoAlpha: 1, y: 0, duration: 0.36, stagger: 0.055 }, 0.2)
-          .to('.notch-toggle, .notch-quick', { autoAlpha: 1, y: 0, duration: 0.36 }, 0.2)
+          .to('.notch-cta', { autoAlpha: 1, y: 0, duration: 0.36 }, 0.2)
           .to('[data-motion="hero-label"]', { autoAlpha: 1, y: 0, duration: 0.5 }, 0.16);
 
         if (splits[0]?.lines?.length) {
